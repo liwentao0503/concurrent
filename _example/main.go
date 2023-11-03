@@ -1,9 +1,10 @@
 package main
 
 import (
-	"concurrent"
 	"context"
 	"fmt"
+
+	"github.com/wt1i/concurrent"
 )
 
 func main() {
