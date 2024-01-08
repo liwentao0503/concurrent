@@ -25,6 +25,9 @@ func main() {
 	}
 
 	errList := concurrent.GoAndWait(context.Background(), handle)
+	if errList.HasError() {
+		fmt.Println(errList.FilterNil())
+	}
 	fmt.Println(resuit)
 	fmt.Println(errList)
 }
