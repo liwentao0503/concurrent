@@ -26,6 +26,15 @@ func (e errList) FilterNil() []error {
 	return errList
 }
 
+func (e errList) HasError() bool {
+	for _, v := range e {
+		if v != nil {
+			return true
+		}
+	}
+	return false
+}
+
 // GoAndWait 封装了 sync.WaitGroup 直接构造好 func 拉函数即可
 // 该函数不解决数据竞争问题,需要 func 自行解决
 func GoAndWait(ctx context.Context, handlers []ContextHandle) errList {
